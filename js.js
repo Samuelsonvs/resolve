@@ -111,7 +111,7 @@ const UploadImage = ({ handleUploadImages = () => {}, products }) => {
     let imagesDuplicate = []
 
     const newFilteredImages = images.filter(newImg => !existingImgNames.includes(newImg.imageFileName) ? newImg : imagesDuplicate.push(newImg));
-    imagesDuplicate.length > 0 && setDuplicateImages(existingImgNames);
+    imagesDuplicate.length > 0 && setDuplicateImages(imagesDuplicate);
     existingImgNames.length > 0 ? (setIsOpen(true), setNewImages(newFilteredImages)) : (handleUploadImages(images));
   };
 
