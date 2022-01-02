@@ -102,7 +102,7 @@ const UploadImage = ({ handleUploadImages = () => {}, products }) => {
 
     const imageNames = images.map(img => (img.imageFileName));
     const existingImgNames = Object.values(products).filter((pvalue) => {
-      const productImages = pvalue.productImages
+      const productImages = pvalue.productImages;
       if (Array.isArray(productImages)) {
         let getArr = productImages.find(existedImages => imageNames.includes(existedImages.imageFileName));
         if(getArr) return getArr.imageFileName;
@@ -110,9 +110,9 @@ const UploadImage = ({ handleUploadImages = () => {}, products }) => {
     })
     setDuplicateImages(existingImgNames);
 
-    let newImages = images.filter(newImg => !existingImgNames.includes(newImg.imageFileName));
+    const newFilteredImages = images.filter(newImg => !existingImgNames.includes(newImg.imageFileName));
 
-    existingImgNames.length > 0 ? (setIsOpen(true), setNewImages(newImages)) : (handleUploadImages(images));
+    existingImgNames.length > 0 ? (setIsOpen(true), setNewImages(newFilteredImages)) : (handleUploadImages(images));
   };
 
   const handleDrop = (e) => {
