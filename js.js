@@ -103,7 +103,7 @@ const UploadImage = ({ handleUploadImages = () => {}, products }) => {
     const imageNames = images.map(img => (img.imageFileName));
     const existingImgNames = Object.values(products).filter((pvalue) => {
       const productImages = pvalue.productImages;
-      if (productImages > 0) {
+      if (productImages.length > 0) {
         let getArr = productImages.find(existedImages => imageNames.includes(existedImages.imageFileName));
         if(getArr) return getArr.imageFileName;
       }
