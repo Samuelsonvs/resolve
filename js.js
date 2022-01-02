@@ -108,10 +108,10 @@ const UploadImage = ({ handleUploadImages = () => {}, products }) => {
         if(getArr) return getArr.imageFileName;
       }
     })
-    setDuplicateImages(existingImgNames);
+    let imagesDuplicate = []
 
-    const newFilteredImages = images.filter(newImg => !existingImgNames.includes(newImg.imageFileName));
-
+    const newFilteredImages = images.filter(newImg => !existingImgNames.includes(newImg.imageFileName) ? newImg : imagesDuplicate.push(newImg));
+    imagesDuplicate.length > 0 && setDuplicateImages(existingImgNames);
     existingImgNames.length > 0 ? (setIsOpen(true), setNewImages(newFilteredImages)) : (handleUploadImages(images));
   };
 
