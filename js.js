@@ -66,6 +66,7 @@ const useStyles = makeStyles({
   }
 });
 
+// review
 const UploadImage = ({ handleUploadImages = () => {}, products }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [duplicateImages, setDuplicateImages] = useState([]);
